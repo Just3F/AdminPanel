@@ -12,9 +12,10 @@ using System;
 namespace AdminPanel.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20180422183748_init2")]
+    partial class init2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -25,8 +26,6 @@ namespace AdminPanel.Migrations
                 {
                     b.Property<long>("PKID")
                         .ValueGeneratedOnAdd();
-
-                    b.Property<DateTime>("DateCreated");
 
                     b.Property<string>("Email");
 
@@ -40,11 +39,7 @@ namespace AdminPanel.Migrations
 
                     b.Property<int>("Role");
 
-                    b.Property<long>("UserVerificationId");
-
                     b.HasKey("PKID");
-
-                    b.HasIndex("UserVerificationId");
 
                     b.ToTable("tblUser");
                 });
@@ -54,11 +49,7 @@ namespace AdminPanel.Migrations
                     b.Property<long>("PKID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<bool>("EmailActivated");
-
                     b.Property<string>("EmailCode");
-
-                    b.Property<bool>("PhoneActivated");
 
                     b.Property<string>("PhoneCode");
 
@@ -66,16 +57,20 @@ namespace AdminPanel.Migrations
 
                     b.Property<DateTime?>("SentPhoneCodeTime");
 
+                    b.Property<long>("UserId");
+
                     b.HasKey("PKID");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("tblUserVerification");
                 });
 
-            modelBuilder.Entity("AdminPanel.Models.tblUser", b =>
+            modelBuilder.Entity("AdminPanel.Models.tblUserVerification", b =>
                 {
-                    b.HasOne("AdminPanel.Models.tblUserVerification", "UserVerification")
+                    b.HasOne("AdminPanel.Models.tblUser", "User")
                         .WithMany()
-                        .HasForeignKey("UserVerificationId")
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

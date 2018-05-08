@@ -1,0 +1,109 @@
+﻿@using AdminPanel.Const
+@using AdminPanel.ViewModels.Users
+@model AdminPanel.ViewModels.Users.UserViewModel
+
+@{
+    ViewData["Title"] = "Edit User";
+}
+
+<div class="m-portlet">
+    <div class="m-portlet__head">
+        <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title">
+                <span class="m-portlet__head-icon m--hide">
+                    <i class="la la-gear"></i>
+                </span>
+                <h3 class="m-portlet__head-text">
+                    User Manage ID = @Model.PKID
+                </h3>
+            </div>
+        </div>
+    </div>
+    <!--begin::Form-->
+    <form asp-controller="Admin" asp-action="EditUser" class="m-form m-form--fit m-form--label-align-right m-form--group-seperator-dashed">
+        <input type="hidden" asp-for="PKID" />
+        <div class="m-portlet__body">
+            <div class="form-group m-form__group row">
+                <div class="col-lg-3">
+                    <label>First Name:</label>
+                    <input type="text" class="form-control m-input" placeholder="Enter first name" asp-for="FirstName">
+                </div>
+                <div class="col-lg-3">
+                    <label>Second Name:</label>
+                    <input type="text" class="form-control m-input" placeholder="Enter second name" asp-for="LastName">
+                </div>
+                <div class="col-lg-3">
+                    <label class="">Email:</label>
+                    <input type="email" class="form-control m-input" placeholder="Enter email" asp-for="Email">
+                </div>
+                <div class="col-lg-3">
+                    <label for="exampleSelect1">Role:</label>
+                    <select class="form-control m-input" asp-for="Role">
+                        <option></option>
+                        @foreach (var role in Html.GetEnumSelectList<Role>())
+                        {
+                            <option value="@role.Value">@role.Text</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="form-group m-form__group row">
+                <div class="col-lg-4">
+                    <label class="">Contact:</label>
+                    <input type="email" class="form-control m-input" placeholder="Enter contact number">
+                    <span class="m-form__help">Please enter your contact</span>
+                </div>
+                <div class="col-lg-4">
+                    <label class="">Fax:</label>
+                    <div class="m-input-icon m-input-icon--right">
+                        <input type="text" class="form-control m-input" placeholder="Fax number">
+                        <span class="m-input-icon__icon m-input-icon__icon--right"><span><i class="la la-info-circle"></i></span></span>
+                    </div>
+                    <span class="m-form__help">Please enter fax</span>
+                </div>
+                <div class="col-lg-4">
+                    <label>Address:</label>
+                    <div class="m-input-icon m-input-icon--right">
+                        <input type="text" class="form-control m-input" placeholder="Enter your address">
+                        <span class="m-input-icon__icon m-input-icon__icon--right"><span><i class="la la-map-marker"></i></span></span>
+                    </div>
+                    <span class="m-form__help">Please enter your address</span>
+                </div>
+            </div>
+            <div class="form-group m-form__group row">
+                <div class="col-lg-4">
+                    <label class="">Postcode:</label>
+                    <div class="m-input-icon m-input-icon--right">
+                        <input type="text" class="form-control m-input" placeholder="Enter your postcode">
+                        <span class="m-input-icon__icon m-input-icon__icon--right"><span><i class="la la-bookmark-o"></i></span></span>
+                    </div>
+                    <span class="m-form__help">Please enter your postcode</span>
+                </div>
+                <div class="col-lg-4">
+                    <label class="">User Group:</label>
+                    <div class="m-radio-inline">
+                        <label class="m-radio m-radio--solid">
+                            <input type="radio" name="example_2" checked="" value="2"> Sales Person
+                            <span></span>
+                        </label>
+                        <label class="m-radio m-radio--solid">
+                            <input type="radio" name="example_2" value="2"> Customer
+                            <span></span>
+                        </label>
+                    </div>
+                    <span class="m-form__help">Please select user group</span>
+                </div>
+            </div>
+        </div>
+        <div class="m-portlet__foot m-portlet__no-border m-portlet__foot--fit">
+            <div class="m-form__actions m-form__actions--solid">
+                <div class="form-row text-center">
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!--end::Form-->
+</div>

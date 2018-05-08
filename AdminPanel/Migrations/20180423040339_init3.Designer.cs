@@ -12,9 +12,10 @@ using System;
 namespace AdminPanel.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    partial class ApplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20180423040339_init3")]
+    partial class init3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -54,11 +55,7 @@ namespace AdminPanel.Migrations
                     b.Property<long>("PKID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<bool>("EmailActivated");
-
                     b.Property<string>("EmailCode");
-
-                    b.Property<bool>("PhoneActivated");
 
                     b.Property<string>("PhoneCode");
 

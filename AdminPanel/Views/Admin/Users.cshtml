@@ -1,0 +1,78 @@
+﻿@model List<AdminPanel.ViewModels.Users.UserViewModel>
+
+@{
+    ViewData["Title"] = "Users";
+}
+@section Scripts{
+    <script src="http://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable({
+                "scrollX": true
+            });
+        });
+    </script>
+}
+@section Styles{
+    <link href="http://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
+}
+
+<div class="m-portlet__head">
+    <div class="m-portlet__head-caption">
+        <div class="m-portlet__head-title">
+            <h3 class="m-portlet__head-text">
+                Users
+                <small>
+                    initialized from javascript array
+                </small>
+            </h3>
+        </div>
+    </div>
+</div>
+<div class="m-portlet__body">
+    <table id="example" class="display custom-table" style="width:100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Office</th>
+                <th>Age</th>
+                <th>Start date</th>
+                <th>Active</th>
+                <th class="actions">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.FullName</td>
+                    <td>@user.Role</td>
+                    <td>Edinburgh</td>
+                    <td>61</td>
+                    <td>@user.DateCreated.ToString("d")</td>
+                    <td><span style="width: 100px;"><span class="m-badge  m-badge--danger m-badge--wide">Un-Active</span></span></td>
+                    <td>
+                        <a asp-action="UserManage" asp-controller="Admin" asp-route-id="@user.PKID"
+                           class="m-portlet__nav-link btn m-btn m-btn--hover-accent m-btn--icon m-btn--icon-only m-btn--pill" title="Edit">
+                            <i class="la la-edit"></i>
+                        </a>
+                        <a href="#" class="m-portlet__nav-link btn m-btn m-btn--hover-danger m-btn--icon m-btn--icon-only m-btn--pill" title="Delete"><i class="la la-trash"></i></a>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Age</th>
+                <th>Start date</th>
+                <th>Active</th>
+                <th>Action</th>
+            </tr>
+        </tfoot>
+    </table>
+</div>

@@ -1,4 +1,5 @@
-﻿using AdminPanel.Const;
+﻿using System;
+using AdminPanel.Const;
 
 namespace AdminPanel.ViewModels.Users
 {
@@ -11,5 +12,8 @@ namespace AdminPanel.ViewModels.Users
         public string Password { get; set; }
         public bool IsActive { get; set; }
         public Role Role { get; set; }
+        public DateTime DateCreated { get; set; }
+        public long UserVerificationId { get; set; }
+        public string FullName => FirstName + " " + LastName;
     }
 }

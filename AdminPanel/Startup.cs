@@ -23,7 +23,6 @@ namespace AdminPanel
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            EmailHelper.Init();
             services.AddDbContext<ApplicationContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")).EnableSensitiveDataLogging());
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
@@ -34,6 +33,8 @@ namespace AdminPanel
 
             services.AddAutoMapper(typeof(Startup));
             services.AddMvc();
+            ConfigurationAccessor.Congiguration = Configuration;
+            EmailHelper.Init();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,7 +58,7 @@ namespace AdminPanel
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Admin}/{action=Index}/{id?}");
             });
         }
     }

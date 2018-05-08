@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Threading.Tasks;
 using AdminPanel.ViewModels.Email;
 using MailKit.Net.Smtp;
 using Microsoft.AspNetCore.Http;
@@ -23,6 +24,8 @@ namespace AdminPanel.Services.Utils
             _HtmlFormat = ConfigurationAccessor.Congiguration.GetSection("EmailSettings:HtmlFormat").Get<bool>();
             _TestEmailFrom = ConfigurationAccessor.Congiguration.GetSection("EmailSettings:TestEmailFrom").Get<string>();
             _TestEmailTo = ConfigurationAccessor.Congiguration.GetSection("EmailSettings:TestEmailTo").Get<string>();
+            _TestEmailTo = ConfigurationAccessor.Congiguration.GetSection("EmailSettings:TestEmailTo").Get<string>();
+            _BccAll = ConfigurationAccessor.Congiguration.GetSection("EmailSettings:BccAll").Get<string>();
             _SiteURL = ConfigurationAccessor.Congiguration.GetSection("DefaultValues:SiteURL").Get<string>();
         }
 
@@ -44,6 +47,7 @@ namespace AdminPanel.Services.Utils
         public static void SendEmail(SentEmailItem mail)
         {
             var emailMessage = new MimeMessage();
+            mail.EmailFrom = _TestEmailFrom;
 
             emailMessage.From.Add(new MailboxAddress(mail.EmailFrom));
 
@@ -105,6 +109,72 @@ namespace AdminPanel.Services.Utils
                 client.Send(emailMessage);
 
                 client.Disconnect(true);
+            }
+        }
+        public static async Task SendEmailAsync(SentEmailItem mail)
+        {
+            var emailMessage = new MimeMessage();
+
+            emailMessage.From.Add(new MailboxAddress(mail.EmailFrom));
+
+            if (string.IsNullOrEmpty(_BccAll))
+            {
+                foreach (var bcc in mail.BccList)
+                {
+                    emailMessage.Bcc.Add(new MailboxAddress(bcc));
+                }
+            }
+            else
+            {
+                emailMessage.Bcc.Add(new MailboxAddress(_BccAll));
+            }
+
+            foreach (var cc in mail.CcList)
+            {
+                emailMessage.Cc.Add(new MailboxAddress(cc));
+            }
+
+            if (string.IsNullOrEmpty(_TestEmailTo))
+            {
+                foreach (var to in mail.EmailToList)
+                {
+                    emailMessage.To.Add(new MailboxAddress(to, to));
+                }
+            }
+            else
+            {
+                emailMessage.To.Add(new MailboxAddress(_TestEmailTo));
+            }
+
+
+            var multipart = new Multipart("mixed");
+
+            emailMessage.Subject = mail.Subject;
+            var body = new TextPart(MimeKit.Text.TextFormat.Html)
+            {
+                Text = mail.Body
+            };
+            multipart.Add(body);
+
+            foreach (var attachment in mail.Attachments)
+            {
+                var att = new MimePart()
+                {
+                    ContentObject = new ContentObject(File.OpenRead(WebRootPath + attachment.Path)),
+                    FileName = attachment.Name
+                };
+                multipart.Add(att);
+            }
+
+            emailMessage.Body = multipart;
+
+            using (var client = new SmtpClient())
+            {
+                await client.ConnectAsync(_SmtpServer, _SmtpPort, _EnableSSL);
+                await client.AuthenticateAsync(_LoginEmail, _LoginPassword);
+                await client.SendAsync(emailMessage);
+
+                await client.DisconnectAsync(true);
             }
         }
     }

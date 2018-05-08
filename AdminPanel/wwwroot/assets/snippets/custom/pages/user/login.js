@@ -52,9 +52,6 @@ var SnippetLogin = function () {
                     r = $(this).closest("form");
                 r.validate({
                     rules: {
-                        fullname: {
-                            required: !0
-                        },
                         email: {
                             required: !0,
                             email: !0
@@ -62,21 +59,27 @@ var SnippetLogin = function () {
                         password: {
                             required: !0
                         },
-                        rpassword: {
+                        PasswordConfirm: {
                             required: !0
                         },
-                        agree: {
+                        IsAgree: {
                             required: !0
                         }
                     }
                 }), r.valid() && (t.addClass("m-loader m-loader--right m-loader--light").attr("disabled", !0), r.ajaxSubmit({
-                    url: "",
+                    url: "/Account/Registration",
                     success: function (e, i, a, l) {
-                        setTimeout(function () {
-                            t.removeClass("m-loader m-loader--right m-loader--light").attr("disabled", !1), r.clearForm(), r.validate().resetForm(), o();
-                            var e = s.find(".m-login__signin form");
-                            e.clearForm(), e.validate().resetForm(), n(e, "success", "Thank you. To complete your registration please check your email.")
-                        }, 2e3)
+                        if (a.responseJSON.hasError == true) {
+                            setTimeout(function () {
+                                t.removeClass("m-loader m-loader--right m-loader--light").attr("disabled", !1), n(r, "danger", a.responseJSON.error)
+                            }, 2e3)
+                        } else {
+                            setTimeout(function () {
+                                t.removeClass("m-loader m-loader--right m-loader--light").attr("disabled", !1), r.clearForm(), r.validate().resetForm(), o();
+                                var e = s.find(".m-login__signin form");
+                                e.clearForm(), e.validate().resetForm(), n(e, "success", "Thank you. To complete your registration please check your email.")
+                            }, 2e3)
+                        }
                     }
                 }))
             }), $("#m_login_forget_password_submit").click(function (e) {
