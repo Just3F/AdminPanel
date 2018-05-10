@@ -14,6 +14,7 @@ namespace AdminPanel.ViewModels.Users
         public Role Role { get; set; }
         public DateTime DateCreated { get; set; }
         public long UserVerificationId { get; set; }
+        public UserVerificationViewModel UserVerification { get; set; }
         public string FullName => FirstName + " " + LastName;
     }
 }

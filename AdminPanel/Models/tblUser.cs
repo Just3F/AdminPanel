@@ -9,6 +9,7 @@ namespace AdminPanel.Models
         public tblUser()
         {
             DateCreated = DateTime.Now;
+            IsActive = true;
         }
 
         public string FirstName { get; set; }

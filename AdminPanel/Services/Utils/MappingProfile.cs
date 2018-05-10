@@ -9,6 +9,7 @@ namespace AdminPanel.Services.Utils
         public MappingProfile()
         {
             CreateMap<tblUser, UserViewModel>();
+            CreateMap<tblUserVerification, UserVerificationViewModel>();
             //CreateMap<tblClientFireDoorNote, ClientFireDoorNote>()
             //    .ForMember(x => x.AddedByName, y => y.MapFrom(src => src.AddedBy.FirstName + " " + src.AddedBy.LastName))
             //    .ForMember(x => x.InActivatedByName, y => y.MapFrom(src => src.InActivatedBy.FirstName + " " + src.InActivatedBy.LastName))

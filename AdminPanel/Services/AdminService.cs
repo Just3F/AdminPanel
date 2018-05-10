@@ -4,6 +4,7 @@ using AdminPanel.Models;
 using AdminPanel.Services.Utils;
 using AdminPanel.ViewModels.Users;
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 
 namespace AdminPanel.Services
 {
@@ -25,7 +26,7 @@ namespace AdminPanel.Services
 
         public List<UserViewModel> GetUsers()
         {
-            return _mapper.Map<List<UserViewModel>>(_db.tblUser);
+            return _mapper.Map<List<UserViewModel>>(_db.tblUser.Include(x => x.UserVerification));
         }
 
         public long EditUser(UserViewModel user)

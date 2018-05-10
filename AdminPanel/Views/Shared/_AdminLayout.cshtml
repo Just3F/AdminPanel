@@ -37,11 +37,11 @@ License: You must have a valid license purchased only from themeforest(the above
     <link href="~/assets/vendors/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
     <!--end::Page Vendors -->
     <link href="~/assets/vendors/base/vendors.bundle.css" rel="stylesheet" type="text/css" />
-    <link href="~/assets/demo/default/base/style.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/demo/demo12/base/style.bundle.css" rel="stylesheet" type="text/css" />
     @RenderSection("Styles", false)
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <!--end::Base Styles -->
-    <link rel="shortcut icon" href="~/assets/demo/default/media/img/logo/favicon.ico" />
+    <link rel="shortcut icon" href="~/assets/demo/demo12/media/img/logo/favicon.ico" />
 </head>
 <!-- end::Head -->
 <!-- end::Body -->
@@ -57,12 +57,13 @@ License: You must have a valid license purchased only from themeforest(the above
                         <div class="m-stack m-stack--ver m-stack--general">
                             <div class="m-stack__item m-stack__item--middle m-brand__logo">
                                 <a href="index.html" class="m-brand__logo-wrapper">
-                                    <img alt="" src="~/assets/demo/default/media/img/logo/logo_default_dark.png" />
+                                    <img alt="" src="~/assets/demo/demo12/media/img/logo/logo.png" />
                                 </a>
                             </div>
                             <div class="m-stack__item m-stack__item--middle m-brand__tools">
                                 <!-- BEGIN: Left Aside Minimize Toggle -->
-                                <a href="javascript:;" id="m_aside_left_minimize_toggle" class="m-brand__icon m-brand__toggler m-brand__toggler--left m--visible-desktop-inline-block">
+                                <a href="javascript:;" id="m_aside_left_minimize_toggle" class="m-brand__icon m-brand__toggler m-brand__toggler--left m--visible-desktop-inline-block
+					 ">
                                     <span></span>
                                 </a>
                                 <!-- END -->
@@ -90,8 +91,8 @@ License: You must have a valid license purchased only from themeforest(the above
                         <button class="m-aside-header-menu-mobile-close  m-aside-header-menu-mobile-close--skin-dark " id="m_aside_header_menu_mobile_close_btn">
                             <i class="la la-close"></i>
                         </button>
-                        <div id="m_header_menu" class="m-header-menu m-aside-header-menu-mobile m-aside-header-menu-mobile--offcanvas  m-header-menu--skin-light m-header-menu--submenu-skin-light m-aside-header-menu-mobile--skin-dark m-aside-header-menu-mobile--submenu-skin-dark ">
-                            <ul class="m-menu__nav  m-menu__nav--submenu-arrow ">
+                        <div id="m_header_menu" class="m-header-menu m-aside-header-menu-mobile m-aside-header-menu-mobile--offcanvas  m-header-menu--skin-dark m-header-menu--submenu-skin-light m-aside-header-menu-mobile--skin-dark m-aside-header-menu-mobile--submenu-skin-dark ">
+                            <ul class="m-menu__nav ">
                                 <li class="m-menu__item  m-menu__item--submenu m-menu__item--rel" m-menu-submenu-toggle="click" m-menu-link-redirect="1" aria-haspopup="true">
                                     <a href="javascript:;" class="m-menu__link m-menu__toggle">
                                         <i class="m-menu__link-icon flaticon-add"></i>
@@ -102,10 +103,9 @@ License: You must have a valid license purchased only from themeforest(the above
                                         <i class="m-menu__ver-arrow la la-angle-right"></i>
                                     </a>
                                     <div class="m-menu__submenu m-menu__submenu--classic m-menu__submenu--left">
-                                        <span class="m-menu__arrow m-menu__arrow--adjust"></span>
                                         <ul class="m-menu__subnav">
                                             <li class="m-menu__item " aria-haspopup="true">
-                                                <a href="header/actions.html" class="m-menu__link ">
+                                                <a href="actions.html" class="m-menu__link ">
                                                     <i class="m-menu__link-icon flaticon-file"></i>
                                                     <span class="m-menu__link-text">
                                                         Create New Post
@@ -113,7 +113,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 </a>
                                             </li>
                                             <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                                <a href="header/actions.html" class="m-menu__link ">
+                                                <a href="actions.html" class="m-menu__link ">
                                                     <i class="m-menu__link-icon flaticon-diagram"></i>
                                                     <span class="m-menu__link-title">
                                                         <span class="m-menu__link-wrap">
@@ -142,42 +142,42 @@ License: You must have a valid license purchased only from themeforest(the above
                                                     <span class="m-menu__arrow "></span>
                                                     <ul class="m-menu__subnav">
                                                         <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                                            <a href="header/actions.html" class="m-menu__link ">
+                                                            <a href="actions.html" class="m-menu__link ">
                                                                 <span class="m-menu__link-text">
                                                                     Latest Orders
                                                                 </span>
                                                             </a>
                                                         </li>
                                                         <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                                            <a href="header/actions.html" class="m-menu__link ">
+                                                            <a href="actions.html" class="m-menu__link ">
                                                                 <span class="m-menu__link-text">
                                                                     Pending Orders
                                                                 </span>
                                                             </a>
                                                         </li>
                                                         <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                                            <a href="header/actions.html" class="m-menu__link ">
+                                                            <a href="actions.html" class="m-menu__link ">
                                                                 <span class="m-menu__link-text">
                                                                     Processed Orders
                                                                 </span>
                                                             </a>
                                                         </li>
                                                         <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                                            <a href="header/actions.html" class="m-menu__link ">
+                                                            <a href="actions.html" class="m-menu__link ">
                                                                 <span class="m-menu__link-text">
                                                                     Delivery Reports
                                                                 </span>
                                                             </a>
                                                         </li>
                                                         <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                                            <a href="header/actions.html" class="m-menu__link ">
+                                                            <a href="actions.html" class="m-menu__link ">
                                                                 <span class="m-menu__link-text">
                                                                     Payments
                                                                 </span>
                                                             </a>
                                                         </li>
                                                         <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                                            <a href="header/actions.html" class="m-menu__link ">
+                                                            <a href="actions.html" class="m-menu__link ">
                                                                 <span class="m-menu__link-text">
                                                                     Customers
                                                                 </span>
@@ -199,35 +199,35 @@ License: You must have a valid license purchased only from themeforest(the above
                                                     <span class="m-menu__arrow "></span>
                                                     <ul class="m-menu__subnav">
                                                         <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                                            <a href="header/actions.html" class="m-menu__link ">
+                                                            <a href="actions.html" class="m-menu__link ">
                                                                 <span class="m-menu__link-text">
                                                                     Customer Feedbacks
                                                                 </span>
                                                             </a>
                                                         </li>
                                                         <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                                            <a href="header/actions.html" class="m-menu__link ">
+                                                            <a href="actions.html" class="m-menu__link ">
                                                                 <span class="m-menu__link-text">
                                                                     Supplier Feedbacks
                                                                 </span>
                                                             </a>
                                                         </li>
                                                         <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                                            <a href="header/actions.html" class="m-menu__link ">
+                                                            <a href="actions.html" class="m-menu__link ">
                                                                 <span class="m-menu__link-text">
                                                                     Reviewed Feedbacks
                                                                 </span>
                                                             </a>
                                                         </li>
                                                         <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                                            <a href="header/actions.html" class="m-menu__link ">
+                                                            <a href="actions.html" class="m-menu__link ">
                                                                 <span class="m-menu__link-text">
                                                                     Resolved Feedbacks
                                                                 </span>
                                                             </a>
                                                         </li>
                                                         <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                                            <a href="header/actions.html" class="m-menu__link ">
+                                                            <a href="actions.html" class="m-menu__link ">
                                                                 <span class="m-menu__link-text">
                                                                     Feedback Reports
                                                                 </span>
@@ -237,7 +237,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 </div>
                                             </li>
                                             <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                                <a href="header/actions.html" class="m-menu__link ">
+                                                <a href="actions.html" class="m-menu__link ">
                                                     <i class="m-menu__link-icon flaticon-users"></i>
                                                     <span class="m-menu__link-text">
                                                         Register Member
@@ -257,7 +257,6 @@ License: You must have a valid license purchased only from themeforest(the above
                                         <i class="m-menu__ver-arrow la la-angle-right"></i>
                                     </a>
                                     <div class="m-menu__submenu  m-menu__submenu--fixed m-menu__submenu--left" style="width:1000px">
-                                        <span class="m-menu__arrow m-menu__arrow--adjust"></span>
                                         <div class="m-menu__subnav">
                                             <ul class="m-menu__content">
                                                 <li class="m-menu__item">
@@ -269,7 +268,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                     </h3>
                                                     <ul class="m-menu__inner">
                                                         <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                                            <a href="header/actions.html" class="m-menu__link ">
+                                                            <a href="actions.html" class="m-menu__link ">
                                                                 <i class="m-menu__link-icon flaticon-map"></i>
                                                                 <span class="m-menu__link-text">
                                                                     Annual Reports
@@ -277,7 +276,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                             </a>
                                                         </li>
                                                         <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                                            <a href="header/actions.html" class="m-menu__link ">
+                                                            <a href="actions.html" class="m-menu__link ">
                                                                 <i class="m-menu__link-icon flaticon-user"></i>
                                                                 <span class="m-menu__link-text">
                                                                     HR Reports
@@ -285,7 +284,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                             </a>
                                                         </li>
                                                         <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                                            <a href="header/actions.html" class="m-menu__link ">
+                                                            <a href="actions.html" class="m-menu__link ">
                                                                 <i class="m-menu__link-icon flaticon-clipboard"></i>
                                                                 <span class="m-menu__link-text">
                                                                     IPO Reports
@@ -293,7 +292,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                             </a>
                                                         </li>
                                                         <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                                            <a href="header/actions.html" class="m-menu__link ">
+                                                            <a href="actions.html" class="m-menu__link ">
                                                                 <i class="m-menu__link-icon flaticon-graphic-1"></i>
                                                                 <span class="m-menu__link-text">
                                                                     Finance Margins
@@ -301,7 +300,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                             </a>
                                                         </li>
                                                         <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                                            <a href="header/actions.html" class="m-menu__link ">
+                                                            <a href="actions.html" class="m-menu__link ">
                                                                 <i class="m-menu__link-icon flaticon-graphic-2"></i>
                                                                 <span class="m-menu__link-text">
                                                                     Revenue Reports
@@ -319,7 +318,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                     </h3>
                                                     <ul class="m-menu__inner">
                                                         <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                                            <a href="header/actions.html" class="m-menu__link ">
+                                                            <a href="actions.html" class="m-menu__link ">
                                                                 <i class="m-menu__link-bullet m-menu__link-bullet--line">
                                                                     <span></span>
                                                                 </i>
@@ -329,7 +328,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                             </a>
                                                         </li>
                                                         <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                                            <a href="header/actions.html" class="m-menu__link ">
+                                                            <a href="actions.html" class="m-menu__link ">
                                                                 <i class="m-menu__link-bullet m-menu__link-bullet--line">
                                                                     <span></span>
                                                                 </i>
@@ -339,7 +338,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                             </a>
                                                         </li>
                                                         <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                                            <a href="header/actions.html" class="m-menu__link ">
+                                                            <a href="actions.html" class="m-menu__link ">
                                                                 <i class="m-menu__link-bullet m-menu__link-bullet--line">
                                                                     <span></span>
                                                                 </i>
@@ -349,7 +348,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                             </a>
                                                         </li>
                                                         <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                                            <a href="header/actions.html" class="m-menu__link ">
+                                                            <a href="actions.html" class="m-menu__link ">
                                                                 <i class="m-menu__link-bullet m-menu__link-bullet--line">
                                                                     <span></span>
                                                                 </i>
@@ -359,7 +358,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                             </a>
                                                         </li>
                                                         <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                                            <a href="header/actions.html" class="m-menu__link ">
+                                                            <a href="actions.html" class="m-menu__link ">
                                                                 <i class="m-menu__link-bullet m-menu__link-bullet--line">
                                                                     <span></span>
                                                                 </i>
@@ -369,7 +368,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                             </a>
                                                         </li>
                                                         <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                                            <a href="header/actions.html" class="m-menu__link ">
+                                                            <a href="actions.html" class="m-menu__link ">
                                                                 <i class="m-menu__link-bullet m-menu__link-bullet--line">
                                                                     <span></span>
                                                                 </i>
@@ -389,7 +388,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                     </h3>
                                                     <ul class="m-menu__inner">
                                                         <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                                            <a href="header/actions.html" class="m-menu__link ">
+                                                            <a href="actions.html" class="m-menu__link ">
                                                                 <i class="m-menu__link-bullet m-menu__link-bullet--dot">
                                                                     <span></span>
                                                                 </i>
@@ -399,7 +398,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                             </a>
                                                         </li>
                                                         <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                                            <a href="header/actions.html" class="m-menu__link ">
+                                                            <a href="actions.html" class="m-menu__link ">
                                                                 <i class="m-menu__link-bullet m-menu__link-bullet--dot">
                                                                     <span></span>
                                                                 </i>
@@ -409,7 +408,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                             </a>
                                                         </li>
                                                         <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                                            <a href="header/actions.html" class="m-menu__link ">
+                                                            <a href="actions.html" class="m-menu__link ">
                                                                 <i class="m-menu__link-bullet m-menu__link-bullet--dot">
                                                                     <span></span>
                                                                 </i>
@@ -419,7 +418,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                             </a>
                                                         </li>
                                                         <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                                            <a href="header/actions.html" class="m-menu__link ">
+                                                            <a href="actions.html" class="m-menu__link ">
                                                                 <i class="m-menu__link-bullet m-menu__link-bullet--dot">
                                                                     <span></span>
                                                                 </i>
@@ -429,7 +428,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                             </a>
                                                         </li>
                                                         <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                                            <a href="header/actions.html" class="m-menu__link ">
+                                                            <a href="actions.html" class="m-menu__link ">
                                                                 <i class="m-menu__link-bullet m-menu__link-bullet--dot">
                                                                     <span></span>
                                                                 </i>
@@ -439,7 +438,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                             </a>
                                                         </li>
                                                         <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                                            <a href="header/actions.html" class="m-menu__link ">
+                                                            <a href="actions.html" class="m-menu__link ">
                                                                 <i class="m-menu__link-bullet m-menu__link-bullet--dot">
                                                                     <span></span>
                                                                 </i>
@@ -459,42 +458,42 @@ License: You must have a valid license purchased only from themeforest(the above
                                                     </h3>
                                                     <ul class="m-menu__inner">
                                                         <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                                            <a href="header/actions.html" class="m-menu__link ">
+                                                            <a href="actions.html" class="m-menu__link ">
                                                                 <span class="m-menu__link-text">
                                                                     Report Adjusments
                                                                 </span>
                                                             </a>
                                                         </li>
                                                         <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                                            <a href="header/actions.html" class="m-menu__link ">
+                                                            <a href="actions.html" class="m-menu__link ">
                                                                 <span class="m-menu__link-text">
                                                                     Sources & Mediums
                                                                 </span>
                                                             </a>
                                                         </li>
                                                         <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                                            <a href="header/actions.html" class="m-menu__link ">
+                                                            <a href="actions.html" class="m-menu__link ">
                                                                 <span class="m-menu__link-text">
                                                                     Reporting Settings
                                                                 </span>
                                                             </a>
                                                         </li>
                                                         <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                                            <a href="header/actions.html" class="m-menu__link ">
+                                                            <a href="actions.html" class="m-menu__link ">
                                                                 <span class="m-menu__link-text">
                                                                     Conversions
                                                                 </span>
                                                             </a>
                                                         </li>
                                                         <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                                            <a href="header/actions.html" class="m-menu__link ">
+                                                            <a href="actions.html" class="m-menu__link ">
                                                                 <span class="m-menu__link-text">
                                                                     Report Flows
                                                                 </span>
                                                             </a>
                                                         </li>
                                                         <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                                            <a href="header/actions.html" class="m-menu__link ">
+                                                            <a href="actions.html" class="m-menu__link ">
                                                                 <span class="m-menu__link-text">
                                                                     Audit & Logs
                                                                 </span>
@@ -525,10 +524,9 @@ License: You must have a valid license purchased only from themeforest(the above
                                         <i class="m-menu__ver-arrow la la-angle-right"></i>
                                     </a>
                                     <div class="m-menu__submenu m-menu__submenu--classic m-menu__submenu--left">
-                                        <span class="m-menu__arrow m-menu__arrow--adjust"></span>
                                         <ul class="m-menu__subnav">
                                             <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                                <a href="header/actions.html" class="m-menu__link ">
+                                                <a href="actions.html" class="m-menu__link ">
                                                     <i class="m-menu__link-icon flaticon-business"></i>
                                                     <span class="m-menu__link-text">
                                                         eCommerce
@@ -548,7 +546,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                     <span class="m-menu__arrow "></span>
                                                     <ul class="m-menu__subnav">
                                                         <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                                            <a href="header/actions.html" class="m-menu__link ">
+                                                            <a href="actions.html" class="m-menu__link ">
                                                                 <i class="m-menu__link-icon flaticon-users"></i>
                                                                 <span class="m-menu__link-text">
                                                                     Active Users
@@ -556,7 +554,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                             </a>
                                                         </li>
                                                         <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                                            <a href="header/actions.html" class="m-menu__link ">
+                                                            <a href="actions.html" class="m-menu__link ">
                                                                 <i class="m-menu__link-icon flaticon-interface-1"></i>
                                                                 <span class="m-menu__link-text">
                                                                     User Explorer
@@ -564,7 +562,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                             </a>
                                                         </li>
                                                         <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                                            <a href="header/actions.html" class="m-menu__link ">
+                                                            <a href="actions.html" class="m-menu__link ">
                                                                 <i class="m-menu__link-icon flaticon-lifebuoy"></i>
                                                                 <span class="m-menu__link-text">
                                                                     Users Flows
@@ -572,7 +570,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                             </a>
                                                         </li>
                                                         <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                                            <a href="header/actions.html" class="m-menu__link ">
+                                                            <a href="actions.html" class="m-menu__link ">
                                                                 <i class="m-menu__link-icon flaticon-graphic-1"></i>
                                                                 <span class="m-menu__link-text">
                                                                     Market Segments
@@ -580,7 +578,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                             </a>
                                                         </li>
                                                         <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                                            <a href="header/actions.html" class="m-menu__link ">
+                                                            <a href="actions.html" class="m-menu__link ">
                                                                 <i class="m-menu__link-icon flaticon-graphic"></i>
                                                                 <span class="m-menu__link-text">
                                                                     User Reports
@@ -591,7 +589,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 </div>
                                             </li>
                                             <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                                <a href="header/actions.html" class="m-menu__link ">
+                                                <a href="actions.html" class="m-menu__link ">
                                                     <i class="m-menu__link-icon flaticon-map"></i>
                                                     <span class="m-menu__link-text">
                                                         Marketing
@@ -599,7 +597,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 </a>
                                             </li>
                                             <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                                <a href="header/actions.html" class="m-menu__link ">
+                                                <a href="actions.html" class="m-menu__link ">
                                                     <i class="m-menu__link-icon flaticon-graphic-2"></i>
                                                     <span class="m-menu__link-title">
                                                         <span class="m-menu__link-wrap">
@@ -628,7 +626,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                     <span class="m-menu__arrow "></span>
                                                     <ul class="m-menu__subnav">
                                                         <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                                            <a href="header/actions.html" class="m-menu__link ">
+                                                            <a href="actions.html" class="m-menu__link ">
                                                                 <i class="m-menu__link-icon flaticon-add"></i>
                                                                 <span class="m-menu__link-title">
                                                                     <span class="m-menu__link-wrap">
@@ -645,7 +643,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                             </a>
                                                         </li>
                                                         <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                                            <a href="header/actions.html" class="m-menu__link ">
+                                                            <a href="actions.html" class="m-menu__link ">
                                                                 <i class="m-menu__link-icon flaticon-signs-1"></i>
                                                                 <span class="m-menu__link-text">
                                                                     File Attributes
@@ -653,7 +651,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                             </a>
                                                         </li>
                                                         <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                                            <a href="header/actions.html" class="m-menu__link ">
+                                                            <a href="actions.html" class="m-menu__link ">
                                                                 <i class="m-menu__link-icon flaticon-folder"></i>
                                                                 <span class="m-menu__link-text">
                                                                     Folders
@@ -661,7 +659,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                             </a>
                                                         </li>
                                                         <li class="m-menu__item " m-menu-link-redirect="1" aria-haspopup="true">
-                                                            <a href="header/actions.html" class="m-menu__link ">
+                                                            <a href="actions.html" class="m-menu__link ">
                                                                 <i class="m-menu__link-icon flaticon-cogwheel-2"></i>
                                                                 <span class="m-menu__link-text">
                                                                     System Settings
@@ -685,7 +683,9 @@ License: You must have a valid license purchased only from themeforest(the above
                                         m-dropdown-toggle="click" id="m_quicksearch" m-quicksearch-mode="dropdown" m-dropdown-persistent="1">
                                         <a href="#" class="m-nav__link m-dropdown__toggle">
                                             <span class="m-nav__link-icon">
-                                                <i class="flaticon-search-1"></i>
+                                                <span class="m-nav__link-icon-wrapper">
+                                                    <i class="flaticon-search-1"></i>
+                                                </span>
                                             </span>
                                         </a>
                                         <div class="m-dropdown__wrapper">
@@ -711,17 +711,21 @@ License: You must have a valid license purchased only from themeforest(the above
                                             </div>
                                         </div>
                                     </li>
-                                    <li class="m-nav__item m-topbar__notifications m-topbar__notifications--img m-dropdown m-dropdown--large m-dropdown--header-bg-fill m-dropdown--arrow m-dropdown--align-center 	m-dropdown--mobile-full-width" m-dropdown-toggle="click" m-dropdown-persistent="1">
+                                    <li class="m-nav__item m-topbar__notifications m-dropdown m-dropdown--large m-dropdown--arrow m-dropdown--align-center 	m-dropdown--mobile-full-width" m-dropdown-toggle="click" m-dropdown-persistent="1">
                                         <a href="#" class="m-nav__link m-dropdown__toggle" id="m_topbar_notification_icon">
-                                            <span class="m-nav__link-badge m-badge m-badge--dot m-badge--dot-small m-badge--danger"></span>
                                             <span class="m-nav__link-icon">
-                                                <i class="flaticon-music-2"></i>
+                                                <span class="m-nav__link-icon-wrapper">
+                                                    <i class="flaticon-music-2"></i>
+                                                </span>
+                                                <span class="m-nav__link-badge m-badge m-badge--danger">
+                                                    3
+                                                </span>
                                             </span>
                                         </a>
                                         <div class="m-dropdown__wrapper">
                                             <span class="m-dropdown__arrow m-dropdown__arrow--center"></span>
                                             <div class="m-dropdown__inner">
-                                                <div class="m-dropdown__header m--align-center" style="background: url(assets/app/media/img/misc/notification_bg.jpg); background-size: cover;">
+                                                <div class="m-dropdown__header m--align-center">
                                                     <span class="m-dropdown__header-title">
                                                         9 New
                                                     </span>
@@ -920,17 +924,21 @@ License: You must have a valid license purchased only from themeforest(the above
                                             </div>
                                         </div>
                                     </li>
-                                    <li class="m-nav__item m-topbar__quick-actions m-topbar__quick-actions--img m-dropdown m-dropdown--large m-dropdown--header-bg-fill m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push m-dropdown--mobile-full-width m-dropdown--skin-light" m-dropdown-toggle="click">
+                                    <li class="m-nav__item m-topbar__quick-actions m-dropdown m-dropdown--skin-light m-dropdown--large m-dropdown--arrow m-dropdown--align-right m-dropdown--align-push m-dropdown--mobile-full-width m-dropdown--skin-light" m-dropdown-toggle="click">
                                         <a href="#" class="m-nav__link m-dropdown__toggle">
-                                            <span class="m-nav__link-badge m-badge m-badge--dot m-badge--info m--hide"></span>
                                             <span class="m-nav__link-icon">
-                                                <i class="flaticon-share"></i>
+                                                <span class="m-nav__link-icon-wrapper">
+                                                    <i class="flaticon-share"></i>
+                                                </span>
+                                                <span class="m-nav__link-badge m-badge m-badge--accent">
+                                                    5
+                                                </span>
                                             </span>
                                         </a>
                                         <div class="m-dropdown__wrapper">
                                             <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
                                             <div class="m-dropdown__inner">
-                                                <div class="m-dropdown__header m--align-center" style="background: url(assets/app/media/img/misc/quick_actions_bg.jpg); background-size: cover;">
+                                                <div class="m-dropdown__header m--align-center">
                                                     <span class="m-dropdown__header-title">
                                                         Quick Actions
                                                     </span>
@@ -940,7 +948,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 </div>
                                                 <div class="m-dropdown__body m-dropdown__body--paddingless">
                                                     <div class="m-dropdown__content">
-                                                        <div class="data" data="false" data-max-height="380" data-mobile-max-height="200">
+                                                        <div class="m-scrollable" data-scrollable="false" data-max-height="380" data-mobile-max-height="200">
                                                             <div class="m-nav-grid m-nav-grid--skin-light">
                                                                 <div class="m-nav-grid__row">
                                                                     <a href="#" class="m-nav-grid__item">
@@ -977,10 +985,15 @@ License: You must have a valid license purchased only from themeforest(the above
                                             </div>
                                         </div>
                                     </li>
-                                    <li class="m-nav__item m-topbar__user-profile m-topbar__user-profile--img  m-dropdown m-dropdown--medium m-dropdown--arrow m-dropdown--header-bg-fill m-dropdown--align-right m-dropdown--mobile-full-width m-dropdown--skin-light" m-dropdown-toggle="click">
+                                    <li class="m-nav__item m-topbar__user-profile  m-dropdown m-dropdown--medium m-dropdown--arrow  m-dropdown--align-right m-dropdown--mobile-full-width m-dropdown--skin-light" m-dropdown-toggle="click">
                                         <a href="#" class="m-nav__link m-dropdown__toggle">
                                             <span class="m-topbar__userpic">
                                                 <img src="~/assets/app/media/img/users/user4.jpg" class="m--img-rounded m--marginless m--img-centered" alt="" />
+                                            </span>
+                                            <span class="m-nav__link-icon m-topbar__usericon  m--hide">
+                                                <span class="m-nav__link-icon-wrapper">
+                                                    <i class="flaticon-user-ok"></i>
+                                                </span>
                                             </span>
                                             <span class="m-topbar__username m--hide">
                                                 Nick
@@ -989,8 +1002,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                         <div class="m-dropdown__wrapper">
                                             <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
                                             <div class="m-dropdown__inner">
-                                                <div class="m-dropdown__header m--align-center" style="background: url(assets/app/media/img/misc/user_profile_bg.jpg); background-size: cover;">
-                                                    <div class="m-card-user m-card-user--skin-dark">
+                                                <div class="m-dropdown__header m--align-center">
+                                                    <div class="m-card-user m-card-user--skin-light">
                                                         <div class="m-card-user__pic">
                                                             <img src="~/assets/app/media/img/users/user4.jpg" class="m--img-rounded m--marginless" alt="" />
                                                         </div>
@@ -1013,7 +1026,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                                 </span>
                                                             </li>
                                                             <li class="m-nav__item">
-                                                                <a href="header/profile.html" class="m-nav__link">
+                                                                <a href="profile.html" class="m-nav__link">
                                                                     <i class="m-nav__link-icon flaticon-profile-1"></i>
                                                                     <span class="m-nav__link-title">
                                                                         <span class="m-nav__link-wrap">
@@ -1030,7 +1043,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                                 </a>
                                                             </li>
                                                             <li class="m-nav__item">
-                                                                <a href="header/profile.html" class="m-nav__link">
+                                                                <a href="profile.html" class="m-nav__link">
                                                                     <i class="m-nav__link-icon flaticon-share"></i>
                                                                     <span class="m-nav__link-text">
                                                                         Activity
@@ -1038,7 +1051,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                                 </a>
                                                             </li>
                                                             <li class="m-nav__item">
-                                                                <a href="header/profile.html" class="m-nav__link">
+                                                                <a href="profile.html" class="m-nav__link">
                                                                     <i class="m-nav__link-icon flaticon-chat-1"></i>
                                                                     <span class="m-nav__link-text">
                                                                         Messages
@@ -1047,7 +1060,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                             </li>
                                                             <li class="m-nav__separator m-nav__separator--fit"></li>
                                                             <li class="m-nav__item">
-                                                                <a href="header/profile.html" class="m-nav__link">
+                                                                <a href="profile.html" class="m-nav__link">
                                                                     <i class="m-nav__link-icon flaticon-info"></i>
                                                                     <span class="m-nav__link-text">
                                                                         FAQ
@@ -1055,7 +1068,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                                 </a>
                                                             </li>
                                                             <li class="m-nav__item">
-                                                                <a href="header/profile.html" class="m-nav__link">
+                                                                <a href="profile.html" class="m-nav__link">
                                                                     <i class="m-nav__link-icon flaticon-lifebuoy"></i>
                                                                     <span class="m-nav__link-text">
                                                                         Support
@@ -1064,7 +1077,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                             </li>
                                                             <li class="m-nav__separator m-nav__separator--fit"></li>
                                                             <li class="m-nav__item">
-                                                                <a asp-action="Logout" asp-controller="Account" class="btn m-btn--pill    btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder">
+                                                                <a href="snippets/pages/user/login-1.html" class="btn m-btn--pill    btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder">
                                                                     Logout
                                                                 </a>
                                                             </li>
@@ -1107,13 +1120,13 @@ License: You must have a valid license purchased only from themeforest(the above
                 <!-- END: Aside Menu -->
             </div>
             <!-- END: Left Aside -->
-        <div class="m-grid__item m-grid__item--fluid m-wrapper">
-            <div class="m-content">
-                <div class="m-portlet m-portlet--mobile">
-            @RenderBody()
-        </div>
-        </div>
-        </div>
+            <div class="m-grid__item m-grid__item--fluid m-wrapper">
+                <div class="m-content">
+                    <div class="m-portlet m-portlet--mobile">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- end:: Body -->
         <!-- begin::Footer -->
@@ -1779,17 +1792,46 @@ License: You must have a valid license purchased only from themeforest(the above
         <i class="la la-arrow-up"></i>
     </div>
     <!-- end::Scroll Top -->		    <!-- begin::Quick Nav -->
+    <ul class="m-nav-sticky" style="margin-top: 30px;">
+        <!--
+        <li class="m-nav-sticky__item" data-toggle="m-tooltip" title="Showcase" data-placement="left">
+            <a href="">
+                <i class="la la-eye"></i>
+            </a>
+        </li>
+        <li class="m-nav-sticky__item" data-toggle="m-tooltip" title="Pre-sale Chat" data-placement="left">
+            <a href="" >
+                <i class="la la-comments-o"></i>
+            </a>
+        </li>
+        -->
+        <li class="m-nav-sticky__item" data-toggle="m-tooltip" title="Purchase" data-placement="left">
+            <a href="https://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes" target="_blank">
+                <i class="la la-cart-arrow-down"></i>
+            </a>
+        </li>
+        <li class="m-nav-sticky__item" data-toggle="m-tooltip" title="Documentation" data-placement="left">
+            <a href="https://keenthemes.com/metronic/documentation.html" target="_blank">
+                <i class="la la-code-fork"></i>
+            </a>
+        </li>
+        <li class="m-nav-sticky__item" data-toggle="m-tooltip" title="Support" data-placement="left">
+            <a href="https://keenthemes.com/forums/forum/support/metronic5/" target="_blank">
+                <i class="la la-life-ring"></i>
+            </a>
+        </li>
+    </ul>
     <!-- begin::Quick Nav -->
     <!--begin::Base Scripts -->
     <script src="~/assets/vendors/base/vendors.bundle.js" type="text/javascript"></script>
-    <script src="~/assets/demo/default/base/scripts.bundle.js" type="text/javascript"></script>
+    <script src="~/assets/demo/demo12/base/scripts.bundle.js" type="text/javascript"></script>
     <!--end::Base Scripts -->
     <!--begin::Page Vendors -->
     <script src="~/assets/vendors/custom/fullcalendar/fullcalendar.bundle.js" type="text/javascript"></script>
     <!--end::Page Vendors -->
     <!--begin::Page Snippets -->
-<script src="~/assets/app/js/dashboard.js" type="text/javascript"></script>
-@RenderSection("Scripts", false)
+    <script src="~/assets/app/js/dashboard.js" type="text/javascript"></script>
+    @RenderSection("Scripts", false)
     <!--end::Page Snippets -->
 </body>
 <!-- end::Body -->

@@ -71,6 +71,20 @@ namespace AdminPanel.Migrations
                     b.ToTable("tblUserVerification");
                 });
 
+            modelBuilder.Entity("AdminPanel.Models.vlGeneralSettings", b =>
+                {
+                    b.Property<long>("PKID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<bool>("IsRequiredEmailVerification");
+
+                    b.Property<bool>("IsRequiredPhoneVerification");
+
+                    b.HasKey("PKID");
+
+                    b.ToTable("vlGeneralSettings");
+                });
+
             modelBuilder.Entity("AdminPanel.Models.tblUser", b =>
                 {
                     b.HasOne("AdminPanel.Models.tblUserVerification", "UserVerification")

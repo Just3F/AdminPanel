@@ -1,0 +1,49 @@
+﻿@using AdminPanel.ViewModels.Settings
+@model AdminPanel.ViewModels.Settings.SettingsPageViewModel
+
+@{
+    ViewData["Title"] = "General Settings";
+}
+
+
+<div class="m-portlet">
+    <div class="m-portlet__head">
+        <div class="m-portlet__head-caption">
+            <div class="m-portlet__head-title">
+                <span class="m-portlet__head-icon m--hide">
+                    <i class="la la-gear"></i>
+                </span>
+                <h3 class="m-portlet__head-text">
+                    User Manage
+                </h3>
+            </div>
+        </div>
+    </div>
+    <form asp-controller="Settings" asp-action="EditGeneralSettings" class="m-form m-form--fit m-form--label-align-right m-form--group-seperator-dashed">
+        <div class="m-portlet__body">
+            <div class="m-form__group form-group">
+                <div class="m-checkbox-inline">
+                    <label class="m-checkbox">
+                        <input type="checkbox" asp-for="IsRequiredEmailVerification">
+                        Email Verification Required
+                        <span></span>
+                    </label>
+                    <label class="m-checkbox">
+                        <input type="checkbox" asp-for="IsRequiredPhoneVerification">
+                        Phone Verification Required
+                        <span></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="m-portlet__foot m-portlet__no-border m-portlet__foot--fit">
+            <div class="m-form__actions m-form__actions--solid">
+                <div class="form-row text-center">
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

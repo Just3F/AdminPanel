@@ -20,11 +20,13 @@ namespace AdminPanel.Controllers
     {
         private ApplicationContext _db;
         private readonly IMapper _mapper;
+        private readonly IViewRenderService _viewRenderService;
 
-        public AccountController(ApplicationContext context, IMapper mapper)
+        public AccountController(ApplicationContext context, IMapper mapper, IViewRenderService viewRenderService)
         {
             _db = context;
             _mapper = mapper;
+            _viewRenderService = viewRenderService;
         }
 
         [HttpGet]
@@ -43,8 +45,13 @@ namespace AdminPanel.Controllers
                 .FirstOrDefaultAsync(u => u.Email == model.Email && u.Password == model.Password);
             if (user != null)
             {
-                if (!user.UserVerification.EmailActivated)
+                var generalSettings = _db.vlGeneralSettings.FirstOrDefault();
+
+                if (!user.UserVerification.EmailActivated && generalSettings.IsRequiredEmailVerification)
                     return InvokeError("Email address is not verified.");
+
+                if (!user.UserVerification.PhoneActivated && generalSettings.IsRequiredPhoneVerification)
+                    return InvokeError("Phone number is not verified.");
 
                 await Authenticate(user);
                 return Json(Url.Action("Profile", "Admin"));
@@ -84,11 +91,19 @@ namespace AdminPanel.Controllers
             await _db.SaveChangesAsync();
 
             var linkOnVerify = EmailHelper._SiteURL + Url.Action("EmailVerification", "Account", new { userId = newUser.PKID, code = emailCode });
-            EmailHelper.SendEmail(new SentEmailItem
+            EmailService emailService = new EmailService();
+            await emailService.SendEmailAsync(new EmailModel
             {
                 Subject = "Confirm Registration",
-                Body = "<b>Hi " + newUser.Email + " </b><br/> Welcome to [SiteName]! <br/>" +
-                       "<a href='" + linkOnVerify + "'>Confirm email address</a>"
+                EmailTo = newUser.Email,
+                Body = await _viewRenderService.RenderToStringAsync("Templates/Email/EmailConfirmTemplate", new EmailConfirmTemplateModel
+                {
+                    Email = newUser.Email,
+                    SiteName = "Admin Panel",
+                    LinkOnVerify = linkOnVerify
+                }),
+                //Body = "<b>Hi " + newUser.Email + " </b><br/> Welcome to [SiteName]! <br/>" +
+                //       "<a href='" + linkOnVerify + "'>Confirm email address</a>"
             });
             return SuccessJsonResult();
         }
