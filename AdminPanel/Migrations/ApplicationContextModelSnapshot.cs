@@ -18,8 +18,40 @@ namespace AdminPanel.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.0.2-rtm-10011")
+                .HasAnnotation("ProductVersion", "2.0.3-rtm-10026")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("AdminPanel.Models.tblCategory", b =>
+                {
+                    b.Property<long>("PKID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Description");
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("PKID");
+
+                    b.ToTable("tblCategory");
+                });
+
+            modelBuilder.Entity("AdminPanel.Models.tblPost", b =>
+                {
+                    b.Property<long>("PKID")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<long>("CategoryId");
+
+                    b.Property<string>("Description");
+
+                    b.Property<string>("Title");
+
+                    b.HasKey("PKID");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("tblPost");
+                });
 
             modelBuilder.Entity("AdminPanel.Models.tblUser", b =>
                 {
@@ -85,12 +117,20 @@ namespace AdminPanel.Migrations
                     b.ToTable("vlGeneralSettings");
                 });
 
+            modelBuilder.Entity("AdminPanel.Models.tblPost", b =>
+                {
+                    b.HasOne("AdminPanel.Models.tblCategory", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Restrict);
+                });
+
             modelBuilder.Entity("AdminPanel.Models.tblUser", b =>
                 {
                     b.HasOne("AdminPanel.Models.tblUserVerification", "UserVerification")
                         .WithMany()
                         .HasForeignKey("UserVerificationId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Restrict);
                 });
 #pragma warning restore 612, 618
         }

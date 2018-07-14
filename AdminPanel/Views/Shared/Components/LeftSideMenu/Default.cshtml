@@ -1,0 +1,7 @@
+﻿@model IEnumerable<AdminPanel.ViewModels.CategoryViewModel>
+<ul>
+    @foreach (var m in Model)
+    {
+        <li><a asp-controller="Home" asp-action="Post" asp-route-id="@m.PKID">@m.Name</a></li>
+    }
+</ul>

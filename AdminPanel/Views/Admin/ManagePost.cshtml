@@ -1,0 +1,70 @@
+﻿@model AdminPanel.ViewModels.ManagePostViewModel
+
+@section Scripts{
+    <script src="~/assets/vendors/custom/datatables/datatables.bundle.js" type="text/javascript"></script>
+    <script src="~/assets/demo/default/custom/crud/datatables/basic/basic.js" type="text/javascript"></script>
+}
+@section Styles{
+    <link href="~/assets/vendors/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
+}
+
+<div class="m-portlet__head">
+    <div class="m-portlet__head-caption">
+        <div class="m-portlet__head-title">
+            <h3 class="m-portlet__head-text">
+                Post
+                <small>
+                </small>
+            </h3>
+        </div>
+    </div>
+</div>
+<div class="m-portlet__body">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="m-portlet m-portlet--tab">
+                <div class="m-portlet__head">
+                    <div class="m-portlet__head-caption">
+                        <div class="m-portlet__head-title">
+                            <span class="m-portlet__head-icon m--hide">
+                                <i class="la la-gear"></i>
+                            </span>
+                            <h3 class="m-portlet__head-text">
+                                Post Settings
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <!--begin::Form-->
+                <form class="m-form m-form--fit m-form--label-align-right" asp-action="ManagePost">
+                    <input type="hidden" asp-for="PostViewModel.PKID" name="PKID" />
+                    <div class="m-portlet__body">
+                        <div class="form-group m-form__group">
+                            <label for="exampleTextarea">Title</label>
+                            <input type="text" class="form-control m-input" rows="3" asp-for="PostViewModel.Title" name="Title"/>
+                        </div>
+                        <div class="form-group m-form__group">
+                            <label>Description</label>
+                            <textarea type="text" class="form-control m-input" placeholder="" asp-for="PostViewModel.Description" name="Description"> </textarea>
+                        </div>
+                        <div class="form-group m-form__group">
+                            <label for="exampleSelect1">Default Select</label>
+                            <select class="form-control m-input" asp-for="PostViewModel.CategoryId" name="CategoryId">
+                                @foreach (var item in Model.Categories)
+                                {
+                                    <option value="@item.PKID">@item.Name</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="m-portlet__foot m-portlet__foot--fit">
+                        <div class="m-form__actions">
+                            <button type="submit" class="btn btn-brand">Save</button>
+                        </div>
+                    </div>
+                </form>
+                <!--end::Form-->
+            </div>
+        </div>
+    </div>
+</div>

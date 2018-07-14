@@ -1,0 +1,18 @@
+﻿@model List<AdminPanel.ViewModels.PostViewModel>
+
+@{
+    ViewBag.Title = Model.FirstOrDefault()?.CategoryName;
+    Layout = "_Layout";
+}
+
+
+<div>
+    @foreach (var post in Model)
+    {
+        <div class="blog-post-title-custom">@post.Title<hr /></div>
+        <div class="main-text-content">
+            @post.Description
+        </div>
+    }
+
+</div>

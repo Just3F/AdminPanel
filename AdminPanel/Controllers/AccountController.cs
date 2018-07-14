@@ -101,9 +101,7 @@ namespace AdminPanel.Controllers
                     Email = newUser.Email,
                     SiteName = "Admin Panel",
                     LinkOnVerify = linkOnVerify
-                }),
-                //Body = "<b>Hi " + newUser.Email + " </b><br/> Welcome to [SiteName]! <br/>" +
-                //       "<a href='" + linkOnVerify + "'>Confirm email address</a>"
+                })
             });
             return SuccessJsonResult();
         }
@@ -163,7 +161,8 @@ namespace AdminPanel.Controllers
 
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(id), new AuthenticationProperties
             {
-                ExpiresUtc = DateTime.UtcNow.AddDays(30)
+                ExpiresUtc = DateTime.UtcNow.AddDays(30),
+                AllowRefresh = true
             });
         }
 
