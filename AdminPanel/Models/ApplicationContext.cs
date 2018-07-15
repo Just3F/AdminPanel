@@ -11,6 +11,7 @@ namespace AdminPanel.Models
         public DbSet<vlGeneralSettings> vlGeneralSettings { get; set; }
         public DbSet<tblPost> tblPost { get; set; }
         public DbSet<tblCategory> tblCategory { get; set; }
+        public DbSet<tblMainCategory> tblMainCategory { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //modelBuilder.Entity<xPostCategory>()

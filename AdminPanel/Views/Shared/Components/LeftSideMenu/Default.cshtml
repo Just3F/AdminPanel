@@ -1,7 +1,12 @@
-﻿@model IEnumerable<AdminPanel.ViewModels.CategoryViewModel>
-<ul>
-    @foreach (var m in Model)
-    {
-        <li><a asp-controller="Home" asp-action="Post" asp-route-id="@m.PKID">@m.Name</a></li>
-    }
-</ul>
+﻿@model IEnumerable<AdminPanel.ViewModels.MainCategoryViewModel>
+@foreach (var mainCategory in Model)
+{
+    <span class="category-title">@mainCategory.Name</span>
+    <ul>
+        @foreach (var category in mainCategory.CategoryViewModels)
+        {
+            <li><a asp-controller="Home" asp-action="Post" asp-route-id="@category.PKID">@category.Name</a></li>
+        }
+    </ul>
+}
+

@@ -6,5 +6,6 @@ namespace AdminPanel.Services
     public interface IHomeService
     {
         List<CategoryViewModel> GetCategories();
+        List<MainCategoryViewModel> GetMainCategories();
     }
 }

@@ -1,4 +1,5 @@
-﻿using AdminPanel.Models;
+﻿using System.Collections.Generic;
+using AdminPanel.Models;
 using AdminPanel.Services;
 using AdminPanel.Services.Utils;
 using AdminPanel.ViewModels;
@@ -26,6 +27,12 @@ namespace AdminPanel.Controllers
             return View(models);
         }
 
+        public IActionResult MainCategories()
+        {
+            List<MainCategoryViewModel> models = _adminService.GetMainCategories();
+            return View(models);
+        }
+
         public IActionResult ManagePost(long? id)
         {
             ManagePostViewModel model = new ManagePostViewModel();
@@ -47,11 +54,13 @@ namespace AdminPanel.Controllers
 
         public IActionResult ManageCategory(long? id)
         {
-            CategoryViewModel category = new CategoryViewModel();
+            CategoryPageViewModel model = new CategoryPageViewModel();
             if (id != null)
-                category = _adminService.GetCategory(id.Value);
+                model.CategoryViewModel = _adminService.GetCategory(id.Value);
 
-            return View(category);
+            model.MainCategoryViewModels = _adminService.GetMainCategories();
+
+            return View(model);
         }
 
         [HttpPost]
@@ -59,6 +68,22 @@ namespace AdminPanel.Controllers
         {
             item = _adminService.ManageCategory(item);
             return RedirectToAction("ManageCategory", new {id = item.PKID});
+        }
+
+        public IActionResult ManageMainCategory(long? id)
+        {
+            MainCategoryViewModel category = new MainCategoryViewModel();
+            if (id != null)
+                category = _adminService.GetMainCategory(id.Value);
+
+            return View(category);
+        }
+
+        [HttpPost]
+        public IActionResult ManageMainCategory(MainCategoryViewModel item)
+        {
+            item = _adminService.ManageMainCategory(item);
+            return RedirectToAction("ManageMainCategory", new { id = item.PKID });
         }
 
         public IActionResult Posts()

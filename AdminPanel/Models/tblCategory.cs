@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AdminPanel.Models
 {
@@ -6,5 +7,8 @@ namespace AdminPanel.Models
     {
         public string Name { get; set; }
         public string Description { get; set; }
+        public long? MainCategoryId { get; set; }
+        [ForeignKey("MainCategoryId")]
+        public tblMainCategory MainCategory { get; set; }
     }
 }

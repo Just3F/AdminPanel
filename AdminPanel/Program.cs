@@ -11,31 +11,31 @@ namespace AdminPanel
     {
         public static void Main(string[] args)
         {
-            BuildWebHost(args).MigrateDatabase().Run();
+            BuildWebHost(args).Run();
         }
 
         private static IWebHost MigrateDatabase(this IWebHost webHost)
         {
-            var serviceScopeFactory = (IServiceScopeFactory)webHost.Services.GetService(typeof(IServiceScopeFactory));
+            //var serviceScopeFactory = (IServiceScopeFactory)webHost.Services.GetService(typeof(IServiceScopeFactory));
 
-            using (var scope = serviceScopeFactory.CreateScope())
-            {
-                var services = scope.ServiceProvider;
-                var dbContext = services.GetRequiredService<ApplicationContext>();
+            //using (var scope = serviceScopeFactory.CreateScope())
+            //{
+            //    var services = scope.ServiceProvider;
+            //    var dbContext = services.GetRequiredService<ApplicationContext>();
 
-                if (!dbContext.vlGeneralSettings.Any())
-                    dbContext.vlGeneralSettings.Add(new vlGeneralSettings());
+            //    if (!dbContext.vlGeneralSettings.Any())
+            //        dbContext.vlGeneralSettings.Add(new vlGeneralSettings());
 
-                if (!dbContext.tblUser.Any())
-                    dbContext.tblUser.Add(new tblUser
-                    {
-                        Email = "admin@admin.com",
-                        Password = "admin"
-                    });
+            //    if (!dbContext.tblUser.Any())
+            //        dbContext.tblUser.Add(new tblUser
+            //        {
+            //            Email = "admin@admin.com",
+            //            Password = "admin"
+            //        });
 
-                dbContext.Database.Migrate();
-                dbContext.SaveChanges();
-            }
+            //    dbContext.Database.Migrate();
+            //    dbContext.SaveChanges();
+            //}
 
             return webHost;
         }

@@ -28,6 +28,21 @@ namespace AdminPanel.Services
             }).ToList();
         }
 
+        public List<MainCategoryViewModel> GetMainCategories()
+        {
+            return _db.tblMainCategory.Select(x => new MainCategoryViewModel()
+            {
+                Order = x.Order,
+                Name = x.Name,
+                PKID = x.PKID,
+                CategoryViewModels = x.Categories.Select(z => new CategoryViewModel
+                {
+                    Description = z.Description,
+                    Name = z.Name
+                }).ToList()
+            }).OrderBy(x => x.Order).ToList();
+        }
+
         public List<PostViewModel> GetPost(long id)
         {
             return _db.tblPost.Where(x => x.CategoryId == id).Select(x => new PostViewModel
@@ -38,6 +53,11 @@ namespace AdminPanel.Services
                 PKID = x.PKID,
                 CategoryId = x.CategoryId
             }).ToList();
+        }
+
+        public long? GetMainPost()
+        {
+            return _db.tblPost.FirstOrDefault(x => x.IsMain)?.PKID;
         }
     }
 }

@@ -97,7 +97,8 @@ namespace AdminPanel.Services
             {
                 Name = x.Name,
                 Description = x.Description,
-                PKID = x.PKID
+                PKID = x.PKID,
+                MainCategoryId = x.MainCategoryId
             }).FirstOrDefault();
         }
 
@@ -108,7 +109,8 @@ namespace AdminPanel.Services
                 var category = new tblCategory
                 {
                     Description = item.Description,
-                    Name = item.Name
+                    Name = item.Name,
+                    MainCategoryId = item.MainCategoryId
                 };
                 _db.tblCategory.Add(category);
                 _db.SaveChanges();
@@ -119,6 +121,7 @@ namespace AdminPanel.Services
                 var category = _db.tblCategory.FirstOrDefault(x => x.PKID == item.PKID);
                 category.Description = item.Description;
                 category.Name = item.Name;
+                category.MainCategoryId = item.MainCategoryId;
                 _db.SaveChanges();
             }
 
@@ -133,6 +136,7 @@ namespace AdminPanel.Services
                 Description = x.Description,
                 CategoryName = x.Category.Name,
                 CategoryId = x.CategoryId,
+                IsMain = x.IsMain,
                 PKID = x.PKID
             }).FirstOrDefault();
         }
@@ -145,6 +149,7 @@ namespace AdminPanel.Services
                 {
                     Description = item.Description,
                     Title = item.Title,
+                    IsMain = item.IsMain,
                     CategoryId = item.CategoryId
                 };
                 _db.tblPost.Add(post);
@@ -155,12 +160,59 @@ namespace AdminPanel.Services
             {
                 var post = _db.tblPost.FirstOrDefault(x => x.PKID == item.PKID);
                 post.Description = item.Description;
+                post.IsMain = item.IsMain;
                 post.Title = item.Title;
                 post.CategoryId = item.CategoryId;
                 _db.SaveChanges();
             }
 
             return item;
+        }
+
+        public MainCategoryViewModel GetMainCategory(long id)
+        {
+            return _db.tblMainCategory.Where(x => x.PKID == id).Select(x => new MainCategoryViewModel
+            {
+                Name = x.Name,
+                PKID = x.PKID,
+                Order = x.Order
+            }).FirstOrDefault();
+        }
+
+        public MainCategoryViewModel ManageMainCategory(MainCategoryViewModel item)
+        {
+            if (item.PKID == 0)
+            {
+                var category = new tblMainCategory
+                {
+                    Order = item.Order,
+                    Name = item.Name
+                };
+                _db.tblMainCategory.Add(category);
+                _db.SaveChanges();
+                item.PKID = category.PKID;
+            }
+            else
+            {
+                var category = _db.tblMainCategory.FirstOrDefault(x => x.PKID == item.PKID);
+                category.Order = item.Order;
+                category.Name = item.Name;
+                _db.SaveChanges();
+            }
+
+            return item;
+        }
+
+        public List<MainCategoryViewModel> GetMainCategories()
+        {
+            var mainCategoriesModel = _db.tblMainCategory.Select(x => new MainCategoryViewModel
+            {
+                Name = x.Name,
+                Order = x.Order,
+                PKID = x.PKID
+            }).OrderBy(x=>x.Order).ToList();
+
+            return mainCategoriesModel;
         }
     }
 }

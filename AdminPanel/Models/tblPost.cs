@@ -6,8 +6,9 @@ namespace AdminPanel.Models
     {
         public string Title { get; set; }
         public string Description { get; set; }
+        public bool IsMain { get; set; }
 
-        public long CategoryId { get; set; }
+        public long? CategoryId { get; set; }
         [ForeignKey("CategoryId")]
         public tblCategory Category { get; set; }
     }

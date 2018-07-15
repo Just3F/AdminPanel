@@ -25,12 +25,22 @@ namespace AdminPanel.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            List<PostViewModel> post = new List<PostViewModel>();
+            var idOfMainPost = _homeService.GetMainPost();
+            if (idOfMainPost != null)
+            {
+                post = _homeService.GetPost(idOfMainPost.Value);
+            }
+            return View("Post", post);
         }
 
-        public IActionResult Post(long id)
+        public IActionResult Post(long? id)
         {
-            var post = _homeService.GetPost(id);
+            List<PostViewModel> post = new List<PostViewModel>();
+            if (id != null)
+            {
+                post = _homeService.GetPost(id.Value);
+            }
             return View(post);
         }
 

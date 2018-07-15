@@ -10,5 +10,6 @@ namespace AdminPanel.ViewModels
         public long PKID { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+        public long? MainCategoryId { get; set; }
     }
 }

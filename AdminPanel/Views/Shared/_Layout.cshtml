@@ -82,23 +82,8 @@
                         Меню сайта
                     </div>
                     <div class="sidebar-content">
-                        <span class="category-title">Юридические услуги в сфере градостроительства:</span>
                         @await Component.InvokeAsync("LeftSideMenu")
-                        <span class="category-title">Узаконение незаконных построек:</span>
-                        <ul>
-                            <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "UzakonitNezakonnuyuRekonstrukciyu" ? "selected" : "")">
-                                <a asp-action="UzakonitNezakonnuyuRekonstrukciyu">Узаконить незаконную реконструкцию</a>
-                            </li>
-                            <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "UzakonenieNezakonnyxPostroek" ? "selected" : "")">
-                                <a asp-action="UzakonenieNezakonnyxPostroek">Узаконение незаконных построек</a>
-                            </li>
-                            <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "PriznaniePravaSobstvennostiNaSamovolnuyuPostrojku" ? "selected" : "")">
-                                <a asp-action="PriznaniePravaSobstvennostiNaSamovolnuyuPostrojku">Признание права собственности на самовольную постройку</a>
-                            </li>
-                            <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "UzakonitIndividualnoeZhiloeStroenie" ? "selected" : "")">
-                                <a asp-action="UzakonitIndividualnoeZhiloeStroenie">Узаконить индивидуальное жилое строение через суд (ИЖС)</a>
-                            </li>
-                        </ul>
+                       
                         @*<span class="category-title">Наши проекты</span>
                             <ul>
                                 <li><a href="http://xn----etbhscwgifr.xn--p1ai/">Проектная компания «ГСК-Проект»</a></li>

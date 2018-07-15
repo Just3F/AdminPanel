@@ -35,6 +35,7 @@ namespace AdminPanel
                     options.LoginPath = new PathString("/Account/Login");
                 });
 
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddAutoMapper(typeof(Startup)).AddScoped<IViewRenderService, ViewRenderService>();
             services.AddMvc();
         }
@@ -46,7 +47,7 @@ namespace AdminPanel
             ConfigurationAccessor.WebRootPath = env.WebRootPath;
             ConfigurationAccessor.Congiguration = Configuration;
             ConfigurationAccessor.Init();
-            if (env.IsDevelopment())
+            if (true)
             {
                 app.UseBrowserLink();
                 app.UseDeveloperExceptionPage();
@@ -62,7 +63,7 @@ namespace AdminPanel
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Admin}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
