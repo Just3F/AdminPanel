@@ -30,7 +30,7 @@
     <div class="m-portlet__head-caption">
         <div class="m-portlet__head-title">
             <h3 class="m-portlet__head-text">
-                Post
+                Статья
                 <small>
                 </small>
             </h3>
@@ -40,55 +40,41 @@
 <div class="m-portlet__body">
     <div class="row">
         <div class="col-md-12">
-            <div class="m-portlet m-portlet--tab">
-                <div class="m-portlet__head">
-                    <div class="m-portlet__head-caption">
-                        <div class="m-portlet__head-title">
-                            <span class="m-portlet__head-icon m--hide">
-                                <i class="la la-gear"></i>
-                            </span>
-                            <h3 class="m-portlet__head-text">
-                                Post Settings
-                            </h3>
-                        </div>
+            <!--begin::Form-->
+            <form class="m-form m-form--fit m-form--label-align-right" asp-action="ManagePost">
+                <input type="hidden" asp-for="PostViewModel.PKID" name="PKID" />
+                <div class="m-portlet__body">
+                    <div class="form-group m-form__group">
+                        <label for="exampleTextarea">Заголовок</label>
+                        <input type="text" class="form-control m-input" asp-for="PostViewModel.Title" name="Title" />
                     </div>
-                </div>
-                <!--begin::Form-->
-                <form class="m-form m-form--fit m-form--label-align-right" asp-action="ManagePost">
-                    <input type="hidden" asp-for="PostViewModel.PKID" name="PKID" />
-                    <div class="m-portlet__body">
-                        <div class="form-group m-form__group">
-                            <label for="exampleTextarea">Title</label>
-                            <input type="text" class="form-control m-input" asp-for="PostViewModel.Title" name="Title" />
-                        </div>
-                        <div class="form-group m-form__group">
-                            <label class="m-checkbox">
-                                <input type="checkbox" asp-for="PostViewModel.IsMain" name="IsMain"> Is Main Post
-                                <span></span>
-                            </label>
-                        </div>
-                        <div class="form-group m-form__group">
-                            <label>Description</label>
-                            <textarea type="text" class="form-control m-input" placeholder="" asp-for="PostViewModel.Description" name="Description"> </textarea>
-                        </div>
-                        <div class="form-group m-form__group">
-                            <label>Категория</label>
-                            <select class="form-control m-input" asp-for="PostViewModel.CategoryId" name="CategoryId">
-                                @foreach (var item in Model.Categories)
-                                {
-                                    <option value="@item.PKID">@item.Name</option>
-                                }
-                            </select>
-                        </div>
+                    <div class="form-group m-form__group">
+                        <label class="m-checkbox">
+                            <input type="checkbox" asp-for="PostViewModel.IsMain" name="IsMain"> Отображать данную статью на главной?
+                            <span></span>
+                        </label>
+                    </div>
+                    <div class="form-group m-form__group">
+                        <label>Содержание статьи</label>
+                        <textarea type="text" class="form-control m-input" placeholder="" asp-for="PostViewModel.Description" name="Description"> </textarea>
+                    </div>
+                    <div class="form-group m-form__group">
+                        <label>Категория</label>
+                        <select class="form-control m-input" asp-for="PostViewModel.CategoryId" name="CategoryId">
+                            @foreach (var item in Model.Categories)
+                            {
+                                <option value="@item.PKID">@item.Name</option>
+                            }
+                        </select>
                     </div>
                     <div class="m-portlet__foot m-portlet__foot--fit">
                         <div class="m-form__actions">
-                            <button type="submit" class="btn btn-brand">Save</button>
+                            <button type="submit" class="btn btn-brand">Сохранить</button>
                         </div>
                     </div>
-                </form>
-                <!--end::Form-->
-            </div>
+                </div>
+            </form>
+            <!--end::Form-->
         </div>
     </div>
 </div>
